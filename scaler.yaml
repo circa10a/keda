@@ -1,0 +1,17 @@
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: lemon-scaledobject
+spec:
+  pollingInterval: 15
+  minReplicaCount: 1
+  maxReplicaCount:  20
+  scaleTargetRef:
+    name: nginx-deployment
+  triggers:
+  - type: lemon
+    metadata:
+      depthTarget: "1"
+      activationLimit: "1"
+      simulatedActualDepth: "0"

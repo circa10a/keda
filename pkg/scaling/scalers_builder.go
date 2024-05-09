@@ -195,6 +195,8 @@ func buildScaler(ctx context.Context, client client.Client, triggerType string, 
 		return scalers.NewKafkaScaler(ctx, config)
 	case "kubernetes-workload":
 		return scalers.NewKubernetesWorkloadScaler(client, config)
+	case "lemon":
+		return scalers.NewLemonScaler(config)
 	case "liiklus":
 		return scalers.NewLiiklusScaler(config)
 	case "loki":
